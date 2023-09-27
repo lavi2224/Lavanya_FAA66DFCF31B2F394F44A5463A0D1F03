@@ -1,41 +1,82 @@
-# 1.2 Write a program that determines whether a year entered by the user is a leap year or not using ifelif-else statements.
+# 2.1 Implement a class called BankAccount that represents a bank account. The class should have private attributes for account number, account holder name, and account balance. Include methods to deposit money, withdraw money, and display the account balance. Ensure that the account balance cannot be accessed directly from outside the class. Write a program to create an instance of the BankAccount class and test the deposit and withdrawal functionality.
 
+class BankAccount:
 
+    def __init__(self, account_number, account_holder_name, initial_balance=0.0):
 
-year = 2023
+        self.__account_number = account_number
 
+        self.__account_holder_name = account_holder_name
 
+        self.__account_balance = initial_balance
 
-# To get year (integer input) from the user
+ 
 
-# year = int(input("Enter a year: "))
+    def deposit(self, amount):
 
+        if amount > 0:
 
+            self.__account_balance += amount
 
-# divided by 100 means century year (ending with 00)
+            print(f"Deposited ${amount:.2f} into account {self.__account_number}")
 
-# century year divided by 400 is leap year
+        else:
 
-if (year % 400 == 0) and (year % 100 == 0):
+            print("Invalid deposit amount. Please deposit a positive amount.")
 
-    print("{0} is a leap year".format(year))
+ 
 
+    def withdraw(self, amount):
 
+        if amount > 0:
 
-# not divided by 100 means not a century year
+            if self.__account_balance >= amount:
 
-# year divided by 4 is a leap year
+                self.__account_balance -= amount
 
-elif (year % 4 ==0) and (year % 100 != 0):
+                print(f"Withdrew ${amount:.2f} from account {self.__account_number}")
 
-    print("{0} is a leap year".format(year))
+            else:
 
+                print("Insufficient balance. Cannot withdraw.")
 
+        else:
 
-# if not divided by both 400 (century year) and 4 (not century year)
+            print("Invalid withdrawal amount. Please withdraw a positive amount.")
 
-# year is not leap year
+ 
 
-else:
+    def display_balance(self):
 
-    print("{0} is not a leap year".format(year))
+        print(f"Account {self.__account_number} balance: ${self.__account_balance:.2f}")
+
+ 
+
+ 
+
+# Testing the BankAccount class
+
+if __name__ == "__main__":
+
+    # Create a BankAccount instance
+
+    account1 = BankAccount("123456", "John Doe", 1000.0)
+
+ 
+
+    # Deposit money
+
+    account1.deposit(500.0)
+
+ 
+
+    # Withdraw money
+
+    account1.withdraw(200.0)
+
+ 
+
+    # Display balance
+
+    account1.display_balance()
+  
