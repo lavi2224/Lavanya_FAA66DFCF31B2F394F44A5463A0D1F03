@@ -1,41 +1,38 @@
-# 1.2 Write a program that determines whether a year entered by the user is a leap year or not using ifelif-else statements.
+#2.2 Implement a class called Player that represents a cricket player. The Player class should have a method called play() which prints "The player is playing cricket. Derive two classes, Batsman and Bowler, from the Player class. Override the play() method in each derived class to print "The batsman is batting" and "The bowler is bowling", respectively. Write a program to create objects of both the Batsman and Bowler classes and call the play() method for each object.
 
+# Define the Player class
 
+class Player:
 
-year = 2023
+    def play(self):
 
+        print("The player is playing cricket.")
 
+# Define the Batsman class, derived from Player
 
-# To get year (integer input) from the user
+class Batsman(Player):
 
-# year = int(input("Enter a year: "))
+    def play(self):
 
+        print("The batsman is batting.")
 
+# Define the Bowler class, derived from Player
 
-# divided by 100 means century year (ending with 00)
+class Bowler(Player):
 
-# century year divided by 400 is leap year
+    def play(self):
 
-if (year % 400 == 0) and (year % 100 == 0):
+        print("The bowler is bowling.")
 
-    print("{0} is a leap year".format(year))
+# Create objects of Batsman and Bowler classes
 
+batsman = Batsman()
 
+bowler = Bowler()
 
-# not divided by 100 means not a century year
+# Call the play() method for each object
 
-# year divided by 4 is a leap year
+batsman.play()
 
-elif (year % 4 ==0) and (year % 100 != 0):
+bowler.play()
 
-    print("{0} is a leap year".format(year))
-
-
-
-# if not divided by both 400 (century year) and 4 (not century year)
-
-# year is not leap year
-
-else:
-
-    print("{0} is not a leap year".format(year))
