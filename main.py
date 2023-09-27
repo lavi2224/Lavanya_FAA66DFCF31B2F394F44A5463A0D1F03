@@ -1,29 +1,41 @@
-# 1.1 Implement a recursive function to calculate the factorial of a given number
+# 1.2 Write a program that determines whether a year entered by the user is a leap year or not using ifelif-else statements.
 
-def recur_factorial(n):  
 
-   if n == 1:  
 
-       return n  
+year = 2023
 
-   else:  
 
-       return n*recur_factorial(n-1)  
 
-# take input from the user  
+# To get year (integer input) from the user
 
-num = int(input("Enter a number: "))  
+# year = int(input("Enter a year: "))
 
-# check is the number is negative  
 
-if num < 0:  
 
-   print("Sorry, factorial does not exist for negative numbers")  
+# divided by 100 means century year (ending with 00)
 
-elif num == 0:  
+# century year divided by 400 is leap year
 
-   print("The factorial of 0 is 1")  
+if (year % 400 == 0) and (year % 100 == 0):
 
-else:  
+    print("{0} is a leap year".format(year))
 
-   print("The factorial of",num,"is",recur_factorial(num))
+
+
+# not divided by 100 means not a century year
+
+# year divided by 4 is a leap year
+
+elif (year % 4 ==0) and (year % 100 != 0):
+
+    print("{0} is a leap year".format(year))
+
+
+
+# if not divided by both 400 (century year) and 4 (not century year)
+
+# year is not leap year
+
+else:
+
+    print("{0} is not a leap year".format(year))
